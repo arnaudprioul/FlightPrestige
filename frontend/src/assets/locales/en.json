@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "addRoute": "Add Route",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Deal Dashboard",
+    "subtitle": "Your monitored routes and latest alerts",
+    "noAlerts": "No deals detected yet.",
+    "noRoutes": "No routes configured. Add one to start monitoring.",
+    "lastChecked": "Last checked"
+  },
+  "addRoute": {
+    "title": "Add Route",
+    "origin": "Origin (IATA)",
+    "destination": "Destination (IATA)",
+    "flexibleDates": "Flexible dates (±3 days)",
+    "submit": "Start Monitoring",
+    "placeholder": {
+      "origin": "e.g. CDG",
+      "destination": "e.g. JFK"
+    }
+  },
+  "routeDetail": {
+    "title": "Route Detail",
+    "priceHistory": "Price History",
+    "alerts": "Alerts",
+    "baseline": "Baseline (30-day avg)",
+    "noData": "No price data yet."
+  },
+  "alert": {
+    "level": {
+      "INSANE": "INSANE DEAL",
+      "GOOD": "Good Deal"
+    },
+    "business": "Business",
+    "economy": "Economy avg",
+    "savings": "Savings vs avg"
+  },
+  "common": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading...",
+    "error": "An error occurred.",
+    "stops": "{n} stop | {n} stops",
+    "nonstop": "Non-stop"
+  }
+}

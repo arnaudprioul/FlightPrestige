@@ -1,0 +1,19 @@
+{
+  "name": "flightprestige",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "concurrently --names \"api,front,worker\" --prefix-colors \"cyan,magenta,yellow\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\" \"npm run worker --prefix backend\"",
+    "dev:web": "concurrently --names \"api,front\" --prefix-colors \"cyan,magenta\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down",
+    "infra:reset": "docker compose down -v && docker compose up -d",
+    "migrate": "npm run migrate --prefix backend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "setup": "npm run install:all && npm run infra:up && sleep 3 && npm run migrate",
+    "build": "npm run build --prefix frontend && npm run build --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

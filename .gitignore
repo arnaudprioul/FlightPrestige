@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+*.local
+
+# Tauri
+frontend/src-tauri/target/
+frontend/src-tauri/WixTools/
+
+# Environment
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Test
+coverage/
+
+# Docker
+.docker/
+
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Swift
+widget/.build/
+widget/DerivedData/
+*.xcuserstate
