@@ -1,0 +1,24 @@
+[package]
+name = "flightprestige"
+version = "0.1.0"
+description = "FlightPrestige Desktop"
+authors = []
+edition = "2021"
+
+[lib]
+name = "flightprestige_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "flightprestige"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-autostart = "2"
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

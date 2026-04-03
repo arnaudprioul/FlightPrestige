@@ -51,3 +51,8 @@ Cargo.lock
 widget/.build/
 widget/DerivedData/
 *.xcuserstate
+
+#claude
+CLAUDE.md
+.claude/
+.claude/*

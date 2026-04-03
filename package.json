@@ -2,18 +2,28 @@
   "name": "flightprestige",
   "private": true,
   "version": "0.1.0",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "concurrently --names \"api,front,worker\" --prefix-colors \"cyan,magenta,yellow\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\" \"npm run worker --prefix backend\"",
-    "dev:web": "concurrently --names \"api,front\" --prefix-colors \"cyan,magenta\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev": "npm run build -w packages/shared && concurrently --names \"api,front,worker\" --prefix-colors \"cyan,magenta,yellow\" \"npm run dev -w packages/backend\" \"npm run dev -w packages/frontend\" \"npm run worker -w packages/backend\"",
+    "dev:web": "npm run build -w packages/shared && concurrently --names \"api,front\" --prefix-colors \"cyan,magenta\" \"npm run dev -w packages/backend\" \"npm run dev -w packages/frontend\"",
+    "dev:desktop": "npm run build -w packages/shared && concurrently --names \"api,front,worker,tauri\" --prefix-colors \"cyan,magenta,yellow,green\" \"npm run dev -w packages/backend\" \"npm run dev -w packages/frontend\" \"npm run worker -w packages/backend\" \"npm run dev -w packages/desktop\"",
+    "dev:api": "npm run dev -w packages/backend",
+    "dev:front": "npm run dev -w packages/frontend",
+    "dev:worker": "npm run worker -w packages/backend",
     "infra:up": "docker compose up -d",
     "infra:down": "docker compose down",
     "infra:reset": "docker compose down -v && docker compose up -d",
-    "migrate": "npm run migrate --prefix backend",
-    "install:all": "npm install --prefix frontend && npm install --prefix backend",
-    "setup": "npm run install:all && npm run infra:up && sleep 3 && npm run migrate",
-    "build": "npm run build --prefix frontend && npm run build --prefix backend"
+    "install:all": "npm install",
+    "setup": "npm install && npm run infra:up",
+    "build": "npm run build -w packages/shared && npm run build -w packages/backend && npm run build -w packages/frontend",
+    "build:desktop": "npm run build -w packages/shared && npm run build -w packages/frontend && npm run build -w packages/desktop"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
+  },
+  "overrides": {
+    "esbuild": "~0.25.0"
   }
 }
